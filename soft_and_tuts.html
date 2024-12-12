@@ -6,10 +6,6 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119266503-1"></script>
@@ -19,16 +15,13 @@
       gtag('js', new Date());
       gtag('config', 'UA-119266503-1');
     </script>
+
   </head>
 
-  <body>
-    <!-- Title -->
-    <div class="row">
-      <div class="col-12"> <img src="images/Logo7.png" class="img-responsive" width="100%"></div>
-    </div>
 
+  <body>    
     <!-- Navigation bar  style="margin-top:-2px;" -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
@@ -53,138 +46,133 @@
       </ul>
     </nav>
 
-
-    <div class="container" style="width:100%">
-      <br><br>
-      <h1><b>Software and Tutorials</b></h1><br>
+    <!-- Title -->    
+    <div class="row">
+      <div class="col-12"> <img src="images/Logo7.png" class="img-responsive" width="100%"> </div>
     </div>
 
-    <!-- Content   -->
-    <div class="container" style="width:100%">		  
 
-      <div class="row">
-        <div class="col-5">
+       
+<xmp theme="bootstrap-responsive"> 
 
-          <!--- GITHUB --->
-          <p align="center"><font face="Garamond" size="3"><font color="#CC0000"><b>
-            Check out our Software at the Quantum Dynamics Hub<br><br>
-            <a target="_blank" href="https://github.com/Quantum-Dynamics-Hub">
-            <img src="images/github-logo.png" alt="Google Groups" width="60" height="60" border="0"></a></b></font></font>
-          </p>
-          <br>		  
-          <!--- END GITHUB --->
-        </div>
+# Software and Tutorials
 
-        <div class="col-5">
-          <!--- GOOGLE GROUPS --->
-          <p align="center"><font face="Garamond" size="3"><font color="#CC0000"><b>
-            Join the Quantum Dynamics Hub Forum Now<br><br>
-            <a target="_blank" href="https://groups.google.com/forum/embed/?place=forum/quantum-dynamics-hub">
-            <img src="images/Logo_Google_groups.png" alt="Google Groups" width="191" height="40" border="0"></a></b></font></font>
-          </p>
-          <br>
-          <!--- END GOOGLE GROUPS --->
-        </div>
-      </div>  <!-- row -->
+## 1. Main Links
+ <a target="_blank" href="https://github.com/Quantum-Dynamics-Hub">Quantum Dynamics Hub
+   <img src="images/github-logo.png" alt="Quantum Dynamics Hub" width="60" height="60" border="0"> 
+ </a> 
 
-      <p>
-        <a target="_new" href="https://quantum-dynamics-hub.github.io/libra/index.html">
-        <b>Libra</b></a> is the "methodology development" library we actively develop in the group. 
-        It is intended for various types of calculations in quantum and classical chemical dynamics 
-        and beyond. Learn more about this code on its website (follow the link).
-      </p>
-      <p>
-        <b>Specific for the group at UB/CCR:</b>
-        <ol>
-          <li>
-            Group version of the core is located at: <pre>/projects/alexeyak/Software/libra-code</pre>
-          </li>
-        </ol>
-        <br><br>
+ <a target="_blank" href="https://groups.google.com/forum/embed/?place=forum/quantum-dynamics-hub">Support Group
+   <img src="images/Logo_Google_groups.png" alt="Google Groups" width="191" height="40" border="0">
+ </a>
 
-      <p>
-        <a target="_new" href="http://www.acsu.buffalo.edu/~alexeyak/pyxaid/index.html"><b>PYXAID</b></a> 
-        is the second tool for nonadiabatic 
-        quantum dynamics (NAQD) in atomistic systems we develop in the group. The code website (follow the link)
-        contains several detailed step-by-step tutorials. The tutorials cover basic and advanced topics related
-        to practical utilization of the code. The tutorials also cover some basics of calculations with the QE code.
-      </p>
-      <p>
-        <b>Specific for the group at UB/CCR:</b>
-        <ol>
-          <li>
-            Group version of the core is located at: <pre>/projects/alexeyak/Software/pyxaid-code</pre>
-          </li>
-          <li>
-            When compiling <b>your own copy</b>, modify the Makefile to set include/library paths for boost and Python as:
+ <a target="_blank" href="https://github.com/compchem-cybertraining">Computational Chemistry CyberTraining
+   <img src="images/ccct-logo.png" alt="Computational Chemistry CyberTraining" width="60" height="60" border="0"> 
+ </a> 
 
-<pre># UB CCR
-p1=/util/academic/boost/v1.57.0/include/boost
-pl1=/util/academic/boost/v1.57.0/lib
 
-# UB CCR
-p2=/util/academic/python/2.7.6/include/python2.7
-pl2=/util/academic/python/2.7.6/lib
-</pre>
-          </li>		  
-          <li>
-            Before running the code, load the Boost libraries
-            <pre>module load boost</pre>
-          </li>
-          <li>
-            Before running the code from an arbitrary location, set up PYTHONPATH environment variable.
-            In the ".bash_profile" file (in your home directory)
-            add the following line:
-            <pre>export PYTHONPATH=$PYTHONPATH:/projects/alexeyak/Software/pyxaid-code</pre>
-            The previous operation, can also be added to the ".bash_profile" file, if you don't want to 
-            do this every time you use PYXAID.
-            Reload your terminal, for the changes to take an effect.
-          </li>
-        </ol>
-      </p>
-      <br>
-      <p>
-        For electronic structure calculations, we we utilize the open-source 
-        <a target="_new" href="http://www.quantum-espresso.org/">Quantum
-        Espresso</a> (QE) code. It is based on the plane-wave basis and density functional theory (DFT).
-        Many theoretical and practical topics are nicely explained in the tutorials available on the official 
-        QE website, but you can also find some examples and discussion on the 
-        <a target="_new" href="http://www.acsu.buffalo.edu/~alexeyak/pyxaid/index.html"><b>PYXAID</b></a> website
-      </p><br>
- 
-      <p style="color:blue; text-weight:bold">CCR computing</p>
-      <ol>
-        <li>
-          Start your SLURM (submit) scripts with the following header:
 
-<pre>#!/bin/sh
-#SBATCH --partition=valhalla
-#SBATCH --clusters=chemistry
-#SBATCH --time=20:00:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=1500
-#SBATCH --mail-user=???@buffalo.edu
+## 2. Packages we develop(ed)
 
-echo "SLURM_JOBID="$SLURM_JOBID
-echo "SLURM_JOB_NODELIST="$SLURM_JOB_NODELIST
-echo "SLURM_NNODES="$SLURM_NNODES
-echo "SLURMTMPDIR="$SLURMTMPDIR
-echo "working directory="$SLURM_SUBMIT_DIR
+ * <a target="_new" href="https://quantum-dynamics-hub.github.io/libra/index.html"><b>Libra</b></a>
+   is the "methodology development" library we actively develop in the group. 
+   It is intended for various types of calculations in quantum and classical chemical dynamics 
+   and beyond. Learn more about this code on its website (follow the link).
 
-NPROCS=`srun --nodes=${SLURM_NNODES} bash -c 'hostname' |wc -l`
-echo NPROCS=$NPROCS
+   The latest release is here:
+   [![DOI](https://zenodo.org/badge/101275719.svg)](https://zenodo.org/badge/latestdoi/101275719)
 
-</pre>
-          <p>
-            This will allow your computations to be run on the group's dedicated nodes ("valhalla" partition)
-          </p>
-          <p style="color:red">Replace ??? with your UB ID, so that ???@buffalo.edu is your valid email address
-          </p>
-          <p>Adjust all other parameters of the job</p>
-        </li>
-      </ol>
-    </div>  <!-- container -->
+ * <a target="_new" href="https://github.com/Quantum-Dynamics-Hub/pyxaid-code"><b>PYXAID</b></a> 
+   is an older (although still in use by some groups) tool for nonadiabatic quantum dynamics (NAQD)
+   in atomistic systems, developed by Akimov and Prezhdo. The code website (follow the link) contains detailed step-by-step tutorials. 
+   The tutorials cover basic and advanced topics related to practical utilization of the code. They also cover some basics
+   of calculations with the QE code.
+
+   NOTE: we don't really develop or support this tool, since more advanced and consistent calculations can be done with Libra.
+
+
+ * <a target="_new" href="https://github.com/Quantum-Dynamics-Hub/pyxaid2"><b>PYXAID2</b></a> 
+   is a version co-developed with Dr. Wei Li, to include NACs calculations with orbitals given in a two-component spinor format.
+
+   NOTE: these capabilities are currently included in Libra
+
+
+
+## 3. Packages we use 
+
+ 3.1. [CP2K](soft_and_tuts/3.1-cp2k.html)
+
+ 3.2. [NWChem](soft_and_tuts/3.2-nwchem.html)
+
+ 3.3. [DFTB+](soft_and_tuts/3.3-dftb+.html)
+
+ 3.4. [Libra](soft_and_tuts/3.4-libra.html)
+
+ 3.5. [ORCA](https://orcaforum.kofo.mpg.de/app.php/portal) \(Official site\)
+
+ 3.6. [PSI4](http://www.psicode.org/) \(Official site\)
+
+ 3.7. [Quantum Espresso](https://www.quantum-espresso.org/) \(Official site\)
+
+ 3.8. [ErgoSCF](http://www.ergoscf.org/) \(Official site\)
+
+
+## 4. Center for Computational Research (CCR) at UB
+
+ 4.1. [SLURM](soft_and_tuts/4.1-slurm.html)
+
+ 4.2. [Anaconda environments](soft_and_tuts/4.2-anaconda_envs.html)
+
+ 4.3. [UB VIDIA](soft_and_tuts/4.3-VIDIA.html)
+
+ 4.4. [UBCCR OnDemand](soft_and_tuts/4.4-UBCCR_OnDemand.html)
+
+
+## 5. Useful links 
+
+ 5.1. [To start learning any programming language go here](https://www.tutorialspoint.com/index.htm) And then select the language you are interested in
+
+ 5.2. [Quick Reference for MathJax](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) Needed to
+      write methematical equations and formulai in the Markdown (e.g. in Jupyter notebooks)
+
+ 5.3. [StrapDown examples and docs](https://naereen.github.io/StrapDown.js/) Needed to create html pages (including this one) by typing everything
+      in the Markdown language. The conversion is done with the help of the StrapDown tool, which combines BootStrap and Markdown.
+
+ 5.4. [Markdown Cheat-Sheet 1](https://www.markdownguide.org/cheat-sheet/#extended-syntax) Very basic
+
+ 5.5. [Markdown Cheat-Sheet 2](https://gist.github.com/ww9/44f08d44327a40d2ab309a349bebec57) More advanced options
+
+ 5.6. [Git Cheat-Sheet](soft_and_tuts/5.6-GIT.html)
+
+ 5.7. [Conda Cheat-Sheet](https://kapeli.com/cheat_sheets/Conda.docset/Contents/Resources/Documents/index)
+
+ 5.8. [Gist GitHub](https://gist.github.com/ww9/4419877e9be023e465b9ff99ecb75f40) How to use the GitHub Gist as a blog
+
+ 5.9. [Gist.io](https://gist.io/) A useful tool for converting GitHub Gists into nice-looking pages
+
+ 5.10. [PEP8](https://pep8.org/) Python code style conventions, a de-facto standard of good Python codes.
+
+
+## 6. Programming tutorial sessions
+
+ 6.1. [Intro to C++, Part 1](https://ub.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0210e826-4d9a-4736-8be2-ac01011224d2)
+
+ 6.2. [Intro to C++, Part 2](https://ub.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b9dae18d-9a03-490e-a7eb-ac10010d2366)
+
+
+</xmp>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.rawgit.com/Naereen/StrapDown.js/master/strapdown.min.js"></script>
+
 
   </body>
+
 </html>

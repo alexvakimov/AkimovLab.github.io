@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+  <head>
+    <title>The Akimov Research Group</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119266503-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-119266503-1');
+    </script>
+
+  </head>
+
+
+  <body>    
+    <!-- Navigation bar  style="margin-top:-2px;" -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="../research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link" href="../publications.html">Publications</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Group</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="../group.html">Present</a>
+            <a class="dropdown-item" href="../group_alumni.html">Former Members and Visitors</a>
+          </div>
+        </li>        
+        <li class="nav-item"><a class="nav-link" href="../teaching.html">Teaching</a></li>
+        <li class="nav-item"><a class="nav-link" href="../outreach.html">Outreach</a></li>
+        <li class="nav-item active"><a class="nav-link" href="../soft_and_tuts.html">Software &amp; Tutorials</a></li>
+        <li class="nav-item"><a class="nav-link" href="../gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+        <li><a href="https://twitter.com/AkimovLab" class="twitter-follow-button" data-show-count="false" data-lang="en-gb">Follow @AkimovLab</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </li>
+      </ul>
+    </nav>
+
+
+<xmp theme="bootstrap"> 
+# 3.4. Libra code on UB CCR
+
+[Libra code](https://github.com/Quantum-Dynamics-Hub/libra-code) is a modular methodology prototyping library for quantum dynamics, written in C++ and Python. Libra enables quantum–classical dynamics calculations with model and atomistic Hamiltonians. Libra boasts a comprehensive set of trajectory surface hopping methods and algorithms for nonadiabatic dynamics. 
+
+## A. Using Libra
+
+To install Libra, we use the instruction in [here](https://github.com/Quantum-Dynamics-Hub/libra-code). It is already installed on CCR and in order to load it, one needs to follow these steps:
+
+
+```
+module use /projects/academic/cyberwksp21/MODULES
+module load libra/v5.5.0 # Other versions are also available: v5.3.0 and the devel branch of the code in github repository.
+```
+
+Using the above command it will load the `libra` environment and one can test the loading by:
+
+```
+python -c "from liblibra_core import *"
+```
+
+## B. Using on Jupyter notebook
+
+In order to use it on Jupyter notebook, you need to follow these steps:
+
+You first need to install Jupyter notebook manually on your terminal. This is a one time setup and you don't need to do this anymore you want to use Jupyter on CCR.
+
+```
+module use /projects/academic/cyberwksp21/MODULES
+module load libra
+pip install jupyterlab
+```
+
+Then, create your own kernel by:
+
+```
+python -m ipykernel install --user --name=libra_kernel
+```
+
+Since the Jupyter lab on CCR resets every module before running the Jupyter notebook interface, you need to properly specify the `PYTHONPATH` and `LD_LIBRARY_PATH` variables to the `_build/src` directory for each version of libra installed in your `~/.bashrc` file as follows (e.g. v5.5.0):
+
+```
+export PYTHONPATH=/projects/academic/cyberwksp21/SOFTWARE_NEW_ENV/libra/v5.5.0/_build/src:$PYTHONPATH
+export LD_LIBRARY_PATH=/projects/academic/cyberwksp21/SOFTWARE_NEW_ENV/libra/v5.5.0/_build/src:$LD_LIBRARY_PATH
+```
+
+Then, from OnDemand, load a JupyterLab job and after jupyter is run, select the `libra_kernel` whenever you want to run a calculations that requires Libra's modules.
+
+**Note:** This only works with Jupyter Lab (legacy) version for now and will not be working by June 2024.
+
+
+### C. Update from 12/04/2024 (based on Mohammad's notes)
+
+To use the new version (5.8.1 and later) of Libra, with the updated CMakeLists.txt file on CCR, load the module:
+```
+module load libra/devel2
+```
+
+There is no conda environment loaded and it uses the CCR precompiled modules except for boost (with version 1.80.0).
+The old one uses the conda environment using:
+
+```
+module load libra/devel
+```
+
+To use the new Libra build in Jupyter notebook, make sure that you correctly give the paths in your `~/.bashrc` file (just adding a 3 to `_build` suffices), e.g.:
+
+```
+export PYTHONPATH=/projects/academic/cyberwksp21/SOFTWARE_NEW_ENV/libra/devel/_build3/src:$PYTHONPATH
+export LD_LIBRARY_PATH=/projects/academic/cyberwksp21/SOFTWARE_NEW_ENV/libra/devel/_build3/src:$LD_LIBRARY_PATH
+```
+
+**Just for those who want to compile their own fork of the code**
+
+No changes to CMakeLists.txt is required. Just need to do this:
+
+#### 1. Load the module and cd to the `_build` folder
+
+```
+module load libra/devel2 # To load all the dependencies and libraries and boost
+cd /path/to/your/libra-code/and/then/to/_build
+```
+
+#### 2. Make sure the _build directory path is empty
+
+#### 3. Then build as usual:
+
+```
+cmake ../ # No worries about the warnings, that's the best I could deliver today and the compilation is unaffected and the liblibra_core is imported
+make -j8
+```
+
+After the compilation is done, make sure you have correctly recompiled it by doing this:
+
+```
+module purge
+cd /path/to/your/libra-code/and/then/to/_build/src
+python -c "from liblibra_core import *"
+```
+
+</xmp>
+
+
+  <script type="text/javascript" src="https://cdn.rawgit.com/Naereen/StrapDown.js/master/strapdown.min.js"></script>
+  </body>
+</html>
